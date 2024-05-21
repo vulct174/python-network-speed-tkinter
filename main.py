@@ -5,7 +5,7 @@ import threading
 
 def check_network_speed():
     check_button.config(state=tk.DISABLED)
-    check_button.config(text="Đang kiểm tra...")
+    check_button.config(text="Checking...")
 
     def check_speed():
         speed_test = speedtest.Speedtest()
@@ -18,7 +18,7 @@ def check_network_speed():
         upload_result.config(text=f"{round(upload_speed, 2)} Mbps")
 
         check_button.config(state=tk.NORMAL)
-        check_button.config(text="Kiểm tra tốc độ")
+        check_button.config(text="Start Test")
 
     thread = threading.Thread(target=check_speed)
     thread.start()
@@ -43,19 +43,19 @@ button_style = {'font': ('Helvetica', 12), 'bg': 'white', 'fg': 'green', 'width'
 
 copyright_style = {'font': ('Helvetica', 10), 'bg': 'green', 'fg': 'white', 'border': 0}
 
-download_label = tk.Label(frame, text="Tốc độ download", **label_style)
+download_label = tk.Label(frame, text="Download speed", **label_style)
 download_label.pack(pady=7)
 
 download_result = tk.Label(frame, text="0 Mbps", **label_style)
 download_result.pack(pady=7)
 
-upload_label = tk.Label(frame, text="Tốc độ upload", **label_style)
+upload_label = tk.Label(frame, text="Upload speed", **label_style)
 upload_label.pack(pady=7)
 
 upload_result = tk.Label(frame, text="0 Mbps", **label_style)
 upload_result.pack(pady=7)
 
-check_button = tk.Button(frame, text="Kiểm tra tốc độ", command=check_network_speed, **button_style)
+check_button = tk.Button(frame, text="Start Test", command=check_network_speed, **button_style)
 check_button.pack(pady=7)
 
 copyright_label = tk.Label(root, text="Copyright@vu.lct", **copyright_style)
