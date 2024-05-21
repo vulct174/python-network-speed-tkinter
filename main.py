@@ -27,7 +27,11 @@ def check_network_speed():
 root = tk.Tk()
 root.title("Check network speed")
 root.config(background='green')
-root.geometry("500x500")
+window_width = 500
+window_height = 500
+x_pos = int((root.winfo_screenwidth() - window_width) // 2)
+y_pos = int((root.winfo_screenheight() - window_height) // 2)
+root.geometry(f"{window_width}x{window_height}+{x_pos}+{y_pos}")
 
 frame = tk.Frame(root, bg='green')
 frame.pack(padx=50, pady=50)
